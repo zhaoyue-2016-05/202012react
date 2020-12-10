@@ -3,31 +3,28 @@
 */ 
 
 import React, { Component } from 'react'
-import './App.css';
+import {Button , message } from 'antd'
+import {BrowserRouter , HashRouter,Switch,Route} from 'react-router-dom'
+
+import Login from './pages/login/login'
+import Admin from './pages/admin/admin'
 
 class App extends Component {
 
+  handleClick = () => {
+    message.success('成功啦。。。')
+  }
+  
   render () {
     return (
-      <div className="App">
-      <header className="App-header">
-        后台管理1
-      </header>
-    </div>
+      <BrowserRouter>
+        <Switch>
+          <Route path='/login' component={Login}></Route>
+          <Route path='/' component={Admin}></Route>
+        </Switch>
+      </BrowserRouter>
     )
   }
 }
-
-
-// function App() {
-//   return (
-
-//     <div className="App">
-//       <header className="App-header">
-//         后台管理
-//       </header>
-//     </div>
-//   );
-// }
 
 export default App;
